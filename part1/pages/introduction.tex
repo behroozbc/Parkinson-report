@@ -1,0 +1,77 @@
+\section{Introduction}
+\subsection{Motivation}
+Oral communication can be affected by developmental or acquired speech disorders due to motor/neurological impairments (e.g., brain injuries, Parkinson’s disease) or sensory/perceptual disorders (e.g., hearing loss).
+Neurological diseases like Parkinson’s disease (PD) impact brain regions and muscles involved in speech production, leading to impairments such as imprecise articulation, slower speaking rate, and hoarse voice.
+Perceptual disorders like sensorineural hearing loss cause decreased speech intelligibility and changes in phoneme articulation, which,
+Pathological speech processing aims to develop technology for diagnosing and monitoring medical conditions through speech.
+This thesis focuses on the automatic acoustic analysis of speech signals from PD patients and people with hearing loss(I did not cover that part).
+PD is characterized by the loss of dopaminergic neurons, leading to motor symptoms and speech impairments.
+Continuous monitoring of PD patients can aid in timely medical decisions.
+For hearing loss, treatments like cochlear implants (CI) are used, but CI users often have altered speech production. Including speech technology in outcome evaluations can improve rehabilitation success.
+Also, this thesis created an android application to help patients.
+\subsection{Speech disorders in Parkinson’s disease}
+PD does not have a standard method to diagnose. Doctors rely on the clinical history and physical examination to assess the patients to diagnose it. the PD marked by a combination of some symptoms regarding motor control.
+The MDS-UPDRS \cite{Goetz2008} is a perceptual scale used to assess motor and non-motor abilities of the patients with 65 items distributed in four sections:
+
+\begin{itemize}
+    \item  Section 1 (MDS-UPDRS-I, 13 items) concerns the non-motor experiences of daily living
+          such as cognitive impairment, depressed mood, and fatigue.
+    \item Section 2 (MDS-UPDRS-II, 13 items) considers motor experiences of daily living such as
+          eating, dressing, handwriting, and tremor.
+    \item Section 3 (MDS-UPDRS-III, 33 items) is used to evaluate the motor capabilities of the
+          patient including speech production, upper/lower limbs movement, postural stability, and
+          gait.
+    \item Section 4 (MDS-UPDRS-IV, 6 items) concerns motor complications such as time spent
+          without medication (OFF state), time spent with dyskinesia (involuntary movements),
+          among others.
+\end{itemize}
+The neurologist evaluate a patient in MDS-UPDRS by asking them to talk about different subjects in order to rate several aspects such as speech’s volume, intelligibility and modulation of words... from normal to severe.
+Moreover, The MDS-UPDRS-III includes the Hoehn \& Yahr (H\&Y) scale, which has five severity levels.
+Level 1 indicates minimal or no functional disability, while level 5 is for patients confined to bed or a wheelchair unless aided.
+However there are two variants of the scale the orginal(1 to 5) and a modified version with two additionall stage.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{c|l|l|r|r|r|r|r|r|r|r|r|r|r}
+        Score & Category & Definition                            \\\hline
+        0     & Normal   & No speech problems                    \\
+        1     & Slight   & Loss of voice intensity or modulation \\
+        2     & Mild     & Some words are unclear                \\
+        3     & Moderate & Speech is difficult to understand     \\
+        4     & Severe   & Speech is unintelligible
+    \end{tabular}
+    \caption{\label{tab:widgets} Speech scoring system from the MDS-UPDRS-III orignal.}
+\end{table}
+This scale assesses the neurological state of patients in clinical environment however evaluates speech production with only one item, which is insufficient given the complexity of speech. Motor speech disorders in PD are often linked to hypokinetic dysarthria.An other method which is The Frenchay Dysarthria Assessment–2 (FDA–2) \cite{enderby2008fda} is a more suitable scale for evaluating speech impairments, considering 34 items across eight sections. Patients perform various tasks, and all sections (except Complementary) are rated on a 9-point scale.
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{l|l}
+        Category        & Item                                                  \\\hline
+        Reflexes        & Cough, swallow, dribble/drool                         \\
+        Respiration     & At rest, in speech                                    \\
+        Lips            & At rest, spread, seal, alternate, in speech           \\
+        Palate          & Fluids, maintenance, in speech                        \\
+        Laryngeal       & Time, pitch, volume, in speech                        \\
+        Tongue          & At rest, protrusion, elevation, lateral               \\
+        Intelligibility & Producing words, sentences, conversation              \\
+        Complementary   & Hearing, sight, teeth, language, speech rate, posture
+    \end{tabular}
+    \caption{\label{tab:widgets}  List of items evaluated in the FDA–2 scale}
+\end{table}
+\\The mFDA \cite{orozco2018neurospeech} is an altered version of FDA-2 which was designed to be applied with foucs only the speech recordings of the patient.
+This method assesses speech tasks such as sustained phonation, reading, monologues, and syllable production. It includes 13 items, each rated from 0 (normal) to 4 (very impaired), with a total score ranging from 0 to 52. A key limitation of the mFDA and MDS-UPDRS is the lack of precision, as the severity of the disease is evaluated based on perceptual scores that depend on the clinician’s experience.\\
+
+
+\textbf{Speech production}\\
+PD affects patients’ speech in various ways, including stability and periodicity issues caused by inadequate closing of the vocal folds due to muscle rigidity \cite{hanson1984cinegraphic}.
+So, Perturbations in vocal fold vibrations can be measured using fundamental frequency (F0) features from sustained vowel phonation.
+Articulation deficits in PD patients are linked to reduced amplitude and velocity of lip, tongue, and jaw movements, affecting vowel and continuous speech production.
+These deficits can be measured by computing the triangular Vowel Space Area (tVSA) and analyzing voiced-to-voiceless transitions using Mel-Frequency Cepstral Coefficients (MFCCs). PD also affects speech at the segmental (individual sounds) and suprasegmental (prosody) levels. Segmental issues, such as difficulties in producing stop consonants, are measured by Voice Onset Time (VOT). Suprasegmental deficits include variations in intonation, loudness, and speech rate, measured by F0 contour, energy content, and speech units.
+\subsection{Hypotheses}
+This thesis investigates the following hypotheses:
+\begin{itemize}
+    \item Speech production of PD patients, and elderly speakers can be evaluated using similar signal processing techniques.
+    \item The progression of PD, which affects speech, can be assessed from speech signals captured in different recording sessions.
+    \item Smartphone applications can be used to evaluate the speech production of PD patients.
+    \item Aging affects various aspects of speech production, and these changes can be captured by features used to analyze pathological speech.
+\end{itemize}
